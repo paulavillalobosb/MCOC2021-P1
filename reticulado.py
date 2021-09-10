@@ -136,4 +136,6 @@ class Reticulado(object):
         
         s += str(self.xyz[0 : self.Nnodos,:])
 
+        print ("Poli")
+
         return s
