@@ -1,7 +1,8 @@
+from secciones import Circular
 import numpy as np
 
 from constantes import g_, ρ_acero, E_acero
-
+from math import sqrt
 
 class Barra(object):
 
@@ -22,28 +23,24 @@ class Barra(object):
         xi : Arreglo numpy de dimenson (3,) con coordenadas del nodo i
         xj : Arreglo numpy de dimenson (3,) con coordenadas del nodo j
         """
-        
         ni = self.ni
         nj = self.nj
 
         xi = reticulado.xyz[ni,:]
         xj = reticulado.xyz[nj,:]
-
-        print(f"Barra {ni} a {nj} xi = {xi} xj = {xj}")
-
-        return 0
+        res = sqrt((xj[0]**2 - xi[0]**2) + (xj[1]**2 - xi[1]**2) + (xj[2]**2 - xi[2]**2))
+        return res
 
     def calcular_peso(self, reticulado):
         """Devuelve el largo de la barra. 
         xi : Arreglo numpy de dimenson (3,) con coordenadas del nodo i
         xj : Arreglo numpy de dimenson (3,) con coordenadas del nodo j
         """
-        
-        """Implementar"""	
-        
-        return 0
-
-
+        secc = self.seccion
+        largo = self.calcular_largo(reticulado)
+        peso = secc.peso()
+        peso_f = peso * largo
+        return peso_f
 
 
     def obtener_rigidez(self, ret):
