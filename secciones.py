@@ -15,7 +15,7 @@ class Circular(object):
         return pi*(self.D**2 - self.Dint**2)/4
 
     def peso(self):
-        return self.area()*ρ_acero*g
+        return self.area()*ρ_acero*g_
 
     def inercia_xx(self):
         return pi*(self.D**4 - self.Dint**4)/4
@@ -43,16 +43,16 @@ class SeccionICHA(object):
 
         
     def area(self):
-        return 0
+        return pi*(self.D**2 - self.Dint**2)/4
 
     def peso(self):
-        return 0
+        return self.area()*ρ_acero*g
 
     def inercia_xx(self):
-        return 0
+        return pi*(self.D**4 - self.Dint**4)/4
 
     def inercia_yy(self):
-        return 0
+        return self.inercia_xx()
 
     def __str__(self):
-        return f"Seccion ICHA {self.denominacion}"
+        return f"Seccion Circular D = {self.D} Dint = {self.Dint}"
