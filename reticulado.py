@@ -9,7 +9,7 @@ class Reticulado(object):
     def __init__(self):
         super(Reticulado, self).__init__()
         
-        print("Constructor de Reticulado")
+        #print("Constructor de Reticulado")
         
         self.xyz = np.zeros((Reticulado.__NNodosInit__,3), dtype=np.double)
         self.Nnodos = 0
@@ -24,7 +24,7 @@ class Reticulado(object):
         
         """Implementar"""	
 
-        print(f"Quiero agregar un nodo en ({x} {y} {z})")
+        #print(f"Quiero agregar un nodo en ({x} {y} {z})")
         numero_de_nodo_actual = self.Nnodos
 
         self.xyz[numero_de_nodo_actual,:] = [x, y, z]
