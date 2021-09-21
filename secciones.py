@@ -30,8 +30,7 @@ class Circular(object):
     def __str__(self):
         return f"Seccion Circular {self.nombre()}"
 
-
-        
+   
 #Mas adelante, no es para P1E1
 
 class SeccionICHA(object):
