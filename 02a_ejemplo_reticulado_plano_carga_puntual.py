@@ -27,6 +27,13 @@ ret.agregar_barra(Barra(1, 2, circular_200_4)) #1
 ret.agregar_barra(Barra(3, 4, circular_200_8)) #2
 ret.agregar_barra(Barra(0, 3, circular_200_8)) #3
 ret.agregar_barra(Barra(3, 1, circular_200_4)) #4
+
+#Crear y agregar las barras
+ret.agregar_barra(Barra(0, 1, circular_200_4)) #0
+ret.agregar_barra(Barra(1, 2, circular_200_4)) #1
+ret.agregar_barra(Barra(3, 4, circular_200_8)) #2
+ret.agregar_barra(Barra(0, 3, circular_200_8)) #3
+ret.agregar_barra(Barra(3, 1, circular_200_4)) #4
 ret.agregar_barra(Barra(1, 4, circular_200_4)) #5
 ret.agregar_barra(Barra(4, 2, circular_200_8)) #6
 
