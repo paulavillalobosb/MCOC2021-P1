@@ -4,7 +4,6 @@ from constantes import g_, ρ_acero, mm_
 import pandas as pd
  
 class Circular(object):
-    """define una seccion Circular"""
 
     def __init__(self, D, Dint, color=rand(3)):
         super(Circular, self).__init__()
