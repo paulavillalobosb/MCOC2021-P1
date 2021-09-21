@@ -2,7 +2,7 @@ from numpy import pi, sqrt, nan
 from numpy.random import rand
 from constantes import g_, ρ_acero, mm_
 import pandas as pd
- 
+
 class Circular(object):
     """define una seccion Circular"""
 
