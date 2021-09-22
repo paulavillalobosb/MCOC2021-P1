@@ -59,24 +59,66 @@ class Reticulado(object):
 
 
 
+    
     def agregar_restriccion(self, nodo, gdl, valor=0.0):
         
-        """Implementar"""	
+        if nodo not in self.restricciones:
+            restricciones[nodo] = []
+
+        self.restricciones[nodo].append([gdl, valor])
         
-        return 0
+        return None
 
     def agregar_fuerza(self, nodo, gdl, valor):
         
-        """Implementar"""	
+        if nodo not in self.cargas:
+            cargas[nodo] = []
+
+        cargas[nodo].append([gdl, valor])   
         
-        return 0
+        return None
 
 
     def ensamblar_sistema(self, factor_peso_propio=0.):
         
-        """Implementar"""	
+        #inicializar K y F
+
+        K = np.zeros(3*self.Nnodos+2, 3*self.Nnodos+2)
+        F = np.zeros(3*self.Nnodos+2)
+
+        #Ensamblar rigidez y vectores de carga
+
+        for e in self.barras:
+            ni = e.ni
+            nj = e.nj
+            ke = e.obtener_rigidez(self)
+            fe = e.obtener_vector_de_cargas(self)
+
+            d = [3*ni, 3*ni+1, 3*ni+2, 3*nj, 3*nj+1, 3*nj+2]
+
+            for i in range(6):
+                p = d[i]
+                for j in range(6):
+                    q = d[j]
+                    K[p, q] += ke[i,j]
+                    
+                if i < 3:
+                    F[p] += fe[i] * factor_peso_propio[i]
+                else:
+                    F[p] += fe[i] * factor_peso_propio[i-3]
+
+        #Agregar cargas puntuales
         
-        return 0
+        for nodo in self.cargas:
+            for carga in self.cargas[nodo]:
+                gdl = carga[0]
+                f = carga[1]
+
+                gdl_global = 3*nodo + gdl
+                F[gdl_global] += f
+
+        return K, F
+
 
 
 
