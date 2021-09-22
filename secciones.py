@@ -2,7 +2,7 @@ from numpy import pi, sqrt, nan
 from numpy.random import rand
 from constantes import g_, ρ_acero, mm_
 import pandas as pd
- 
+
 class Circular(object):
     """define una seccion Circular"""
 
@@ -30,8 +30,7 @@ class Circular(object):
     def __str__(self):
         return f"Seccion Circular {self.nombre()}"
 
-
-        
+   
 #Mas adelante, no es para P1E1
 
 class SeccionICHA(object):
@@ -141,4 +140,5 @@ class SeccionICHA(object):
         texto += f"  Iyy : {iyy}\n"
 
         return texto
+
 
