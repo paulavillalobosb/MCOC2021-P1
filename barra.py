@@ -43,13 +43,7 @@ class Barra(object):
         return peso_f
 
 
-    def obtener_rigidez(self, reticulado):
-        
-        """Implementar"""
-        ni = self.ni
-        nj = self.nj
-        l = self.calcular_largo(reticulado)
-
+    def T(self, reticulado):
         xi = reticulado.xyz[ni,:]
         xj = reticulado.xyz[nj,:]
         Lx = xj[0] - xi[0]
@@ -59,7 +53,17 @@ class Barra(object):
         cosΘy = Ly/l
         cosΘz = Lz/l
 
-        T = np.array([-cosΘx, -cosΘy, cosΘz, -cosΘx, -cosΘy, cosΘz])
+        return np.array([-cosΘx, -cosΘy, cosΘz, -cosΘx, -cosΘy, cosΘz])
+
+
+    def obtener_rigidez(self, reticulado):
+        
+        """Implementar"""
+        ni = self.ni
+        nj = self.nj
+        l = self.calcular_largo(reticulado)
+        T = self.T(reticulado)
+        
         Ke = self.seccion.area()* E_acero/l * T.T @ T
         return Ke
 
@@ -67,6 +71,7 @@ class Barra(object):
         
         """Implementar"""	
         w = self.calcular_peso(reticulado)
+        T = self.T(reticulado)
         v = np.array([0,0,1,0,0,1]).T
 
         return -w/2*v
@@ -75,8 +80,23 @@ class Barra(object):
     def obtener_fuerza(self, reticulado):
         
         """Implementar"""	
-        
-        return 0
+        l = self.calcular_largo(reticulado)
+        T = self.T(reticulado)
+        ni = self.ni
+        nj = self.nj
+
+        d = [3*ni, 3*ni+1, 3*ni+2, 3*nj, 3*nj+1, 3*nj+2]
+        u_e = np.zeros(6)
+        u = reticulado.resolver_sistema()
+
+        for i in range(6):
+            p = d[i]
+            u_e[i] += u[p]
+
+
+        se = self.seccion.area()* E_acero/l * T @ u_e.T
+
+        return se
 
 
 
