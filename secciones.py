@@ -115,11 +115,19 @@ class SeccionICHA(object):
             return self.fila["Ix/10⁶"].values[0]
 
     def inercia_yy(self):
+<<<<<<< HEAD
         if len(self.fila["Iy/10⁶"].values) == 0:
             return "nan"
         else:
             return self.fila["Iy/10⁶"].values[0]
             
+=======
+        return 0
+
+    def nombre(self):
+        return self.denominacion
+
+>>>>>>> 7a42fc21992160a1e87ca12ea1f86f8010006981
     def __str__(self):
 
         a = self.area()
