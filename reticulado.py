@@ -1,4 +1,7 @@
+from h5py._hl import dataset
+from matplotlib.pyplot import cla
 import numpy as np
+import h5py
 from scipy.linalg import solve
 
 class Reticulado(object):
@@ -9,7 +12,7 @@ class Reticulado(object):
     def __init__(self):
         super(Reticulado, self).__init__()
         
-        #print("Constructor de Reticulado")
+        print("Constructor de Reticulado")
         
         self.xyz = np.zeros((Reticulado.__NNodosInit__,3), dtype=np.double)
         self.Nnodos = 0
@@ -63,7 +66,7 @@ class Reticulado(object):
     def agregar_restriccion(self, nodo, gdl, valor=0.0):
         
         if nodo not in self.restricciones:
-            restricciones[nodo] = []
+            self.restricciones[nodo] = []
 
         self.restricciones[nodo].append([gdl, valor])
         
@@ -72,9 +75,9 @@ class Reticulado(object):
     def agregar_fuerza(self, nodo, gdl, valor):
         
         if nodo not in self.cargas:
-            cargas[nodo] = []
+            self.cargas[nodo] = []
 
-        cargas[nodo].append([gdl, valor])   
+        self.cargas[nodo].append([gdl, valor])   
         
         return None
 
@@ -137,16 +140,22 @@ class Reticulado(object):
 
     def obtener_fuerzas(self):
         
-        """Implementar"""	
+        fuerzas = np.zeros((len(self.barras)), dtype=np.double)
+        for i,b in enumerate(self.barras):
+            fuerzas[i] = b.obtener_fuerza(self)
+
+        return fuerzas	
         
-        return 0
 
 
-    def obtener_factores_de_utilizacion(self, f):
+    def obtener_factores_de_utilizacion(self, f, ϕ=0.9):
         
-        """Implementar"""	
+        FU = np.zeros((len(self.barras)), dtype=np.double)
+        for i,b in enumerate(self.barras):
+            FU[i] = b.obtener_factor_utilizacion(f[i], ϕ)
+
+        return FU	
         
-        return 0
 
     def rediseñar(self, Fu, ϕ=0.9):
         
@@ -158,13 +167,41 @@ class Reticulado(object):
 
     def chequear_diseño(self, Fu, ϕ=0.9):
         
-        """Implementar"""	
+        cumple = True
+        for i,b in enumerate(self.barras):
+            if not b.chequear_diseño(Fu[i], self, ϕ):
+                print(f"----> Barra {i} no cumple algun criterio. ")
+                cumple = False
+        return cumple	
         
+
+    def guardar(self, nombre):
+
+        dataset = h5py.File(nombre, "w")   
+        dataset["xyz"] = self.xyz
+        barras = np.zeros((len(self.barras),2), dtype= np.int32)
+        secciones = np.zeros((len(self.barras),), dtype= h5py.string_dtype())
+        restricciones = np.zeros((10,2), dtype= np.int32)
+        i=0
+        for clave in (self.restricciones):
+            for valor in (self.restricciones[clave]):
+                print(clave)
+                restricciones[i,0] = clave
+                restricciones[i,1] = valor[0]
+                i+=1
+        
+        for i,b in enumerate(self.barras):
+            barras[i,0] = b.ni
+            barras[i,1] = b.nj
+            secciones[i] = b.seccion.nombre()
+
+        dataset["restricciones"] = restricciones
+        dataset["barras"] = barras
+        dataset["secciones"] = secciones
         return 0
 
-
-
-
+    def abrir(self, nombre):
+        return 0
 
 
     def __str__(self):

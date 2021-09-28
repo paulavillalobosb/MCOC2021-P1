@@ -44,6 +44,9 @@ class Barra(object):
 
 
     def T(self, reticulado):
+        ni = self.ni
+        nj = self.nj
+        l = self.calcular_largo(reticulado)
         xi = reticulado.xyz[ni,:]
         xj = reticulado.xyz[nj,:]
         Lx = xj[0] - xi[0]
