@@ -16,6 +16,8 @@ class Reticulado(object):
         
         self.xyz = np.zeros((Reticulado.__NNodosInit__,3), dtype=np.double)
         self.Nnodos = 0
+        self.Nrestricciones = 0
+        self.Ncargas = 0
         self.barras = []
         self.cargas = {}
         self.restricciones = {}
@@ -69,6 +71,7 @@ class Reticulado(object):
             self.restricciones[nodo] = []
 
         self.restricciones[nodo].append([gdl, valor])
+        self.Nrestricciones += 1
         
         return None
 
@@ -77,7 +80,8 @@ class Reticulado(object):
         if nodo not in self.cargas:
             self.cargas[nodo] = []
 
-        self.cargas[nodo].append([gdl, valor])   
+        self.cargas[nodo].append([gdl, valor])
+        self.Ncargas += 1   
         
         return None
 
@@ -179,13 +183,18 @@ class Reticulado(object):
         dataset["xyz"] = self.xyz
         barras = np.zeros((len(self.barras),2), dtype= np.int32)
         secciones = np.zeros((len(self.barras),), dtype= h5py.string_dtype())
-        restricciones = np.zeros((10,2), dtype= np.int32)
+        restricciones = np.zeros((self.Nrestricciones,2), dtype= np.int32)
+        restricciones_val = np.zeros((self.Nrestricciones,1), dtype= np.double)
+        cargas = np.zeros((self.Ncargas, 2), dtype=np.int32)
+        cargass_val = np.zeros((self.Ncargas,1), dtype= np.double)
+
         i=0
         for clave in (self.restricciones):
             for valor in (self.restricciones[clave]):
                 print(clave)
                 restricciones[i,0] = clave
                 restricciones[i,1] = valor[0]
+                restricciones_val[i,0] = valor[1]
                 i+=1
         
         for i,b in enumerate(self.barras):
@@ -193,9 +202,21 @@ class Reticulado(object):
             barras[i,1] = b.nj
             secciones[i] = b.seccion.nombre()
 
+        i=0
+        for clave in (self.cargas):
+            for valor in (self.cargas[clave]):
+                print(clave)
+                cargas[i,0] = clave
+                cargas[i,1] = valor[0]
+                cargass_val[i,0] = valor[1]
+                i+=1
+
         dataset["restricciones"] = restricciones
+        dataset["restricciones_val"] = restricciones_val
         dataset["barras"] = barras
         dataset["secciones"] = secciones
+        dataset["cargas"] = cargas
+        dataset["cargass_val"] = cargass_val
         return 0
 
     def abrir(self, nombre):

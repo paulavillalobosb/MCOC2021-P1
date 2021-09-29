@@ -74,7 +74,6 @@ class Barra(object):
         
         """Implementar"""	
         w = self.calcular_peso(reticulado)
-        T = self.T(reticulado)
         v = np.array([0,0,1,0,0,1]).T
 
         return -w/2*v
