@@ -3,6 +3,9 @@ from matplotlib.pyplot import cla
 import numpy as np
 import h5py
 from scipy.linalg import solve
+from secciones import SeccionICHA
+from barra import Barra
+
 
 class Reticulado(object):
     """Define un reticulado"""
@@ -219,8 +222,36 @@ class Reticulado(object):
         dataset["cargass_val"] = cargass_val
         return 0
 
+
     def abrir(self, nombre):
-        return 0
+
+        dataset = h5py.File(nombre, "r")
+
+        xyz = dataset["xyz"]
+        barras = dataset["barras"]
+        secciones = dataset["secciones"]
+        restricciones = dataset["restricciones"]
+        restricciones_val = dataset["restricciones_val"]
+        cargas = dataset["cargas"]
+        cargas_val = dataset["cargas_val"]
+
+        for i in xyz:
+            self.agregar_nodo(i[0], i[1], i[2])
+
+        for i in barras:
+            B = Barra(i[0],i[1],SeccionICHA(str(secciones[i])))
+            self.agregar_barra(B)
+
+        for i in cargas:
+            self.agregar_fuerza(int(i[0]),int(i[1]),double(cargas_val[i]))
+        
+        for i in restricciones:
+            self.agregar_restriccion(int(i[0]),int(i[1]),double(restricciones_val[i]))
+
+        dataset.close()
+
+
+
 
     def __str__(self):
 
