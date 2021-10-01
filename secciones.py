@@ -119,7 +119,11 @@ class SeccionICHA(object):
             return "nan"
         else:
             return self.fila["Iy/10⁶"].values[0]
-            
+
+
+    def nombre(self):
+        return self.denominacion
+
     def __str__(self):
 
         a = self.area()
