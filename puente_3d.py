@@ -5,8 +5,11 @@ from constantes import *
 from math import sqrt
 from secciones import Circular
 
-L = 5.46428568696429
-H = 0.130102043139577
+L = 5.46428568696429*m_
+H = 0.130102043139577*m_
+B = 4*m_
+q = 400*kgf_/m_**2
+F = B*L*q
 #Inicializar modelo
 ret = Reticulado()
 
@@ -57,50 +60,50 @@ ret.agregar_nodo(2.343634807564907163e+00+L*19  ,0,6.281724747887941618e+01-H*19
 ret.agregar_nodo(2.343634807564907163e+00+L*20  ,0,6.281724747887941618e+01-H*20)#pto41
 
 #replica------------------------------------------------------------------------------------------
-ret.agregar_nodo(2.343634807564907163e+00      ,4,4.281724747887941618e+01)	   #pto 42
-ret.agregar_nodo(2.343634807564907163e+00+L    ,4,4.281724747887941618e+01-H)  #pto 43
-ret.agregar_nodo(2.343634807564907163e+00+L*2  ,4,4.281724747887941618e+01-H*2)#pto 44
-ret.agregar_nodo(2.343634807564907163e+00+L*3  ,4,4.281724747887941618e+01-H*3)#pto 45
-ret.agregar_nodo(2.343634807564907163e+00+L*4  ,4,4.281724747887941618e+01-H*4)#pto 46
-ret.agregar_nodo(2.343634807564907163e+00+L*5  ,4,4.281724747887941618e+01-H*5)#pto 47
-ret.agregar_nodo(2.343634807564907163e+00+L*6  ,4,4.281724747887941618e+01-H*6)#pto 48
-ret.agregar_nodo(2.343634807564907163e+00+L*7  ,4,4.281724747887941618e+01-H*7)#pto 49
-ret.agregar_nodo(2.343634807564907163e+00+L*8  ,4,4.281724747887941618e+01-H*8)#pto 50
-ret.agregar_nodo(2.343634807564907163e+00+L*9  ,4,4.281724747887941618e+01-H*9)#pto 51
-ret.agregar_nodo(2.343634807564907163e+00+L*10 ,4,4.281724747887941618e+01-H*10)#pto52
-ret.agregar_nodo(2.343634807564907163e+00+L*11 ,4,4.281724747887941618e+01-H*11)#pto53
-ret.agregar_nodo(2.343634807564907163e+00+L*12 ,4,4.281724747887941618e+01-H*12)#pto54
-ret.agregar_nodo(2.343634807564907163e+00+L*13 ,4,4.281724747887941618e+01-H*13)#pto55
-ret.agregar_nodo(2.343634807564907163e+00+L*14 ,4,4.281724747887941618e+01-H*14)#pto56
-ret.agregar_nodo(2.343634807564907163e+00+L*15 ,4,4.281724747887941618e+01-H*15)#pto57
-ret.agregar_nodo(2.343634807564907163e+00+L*16 ,4,4.281724747887941618e+01-H*16)#pto58
-ret.agregar_nodo(2.343634807564907163e+00+L*17 ,4,4.281724747887941618e+01-H*17)#pto59
-ret.agregar_nodo(2.343634807564907163e+00+L*18 ,4,4.281724747887941618e+01-H*18)#pto60
-ret.agregar_nodo(2.343634807564907163e+00+L*19 ,4,4.281724747887941618e+01-H*19)#pto61
-ret.agregar_nodo(2.343634807564907163e+00+L*20 ,4,4.281724747887941618e+01-H*20)#pto62
-ret.agregar_nodo(1.170936342338148819e+02      ,4,4.008510457294829621e+01)		#pto63
+ret.agregar_nodo(2.343634807564907163e+00      ,B,4.281724747887941618e+01)	   #pto 42
+ret.agregar_nodo(2.343634807564907163e+00+L    ,B,4.281724747887941618e+01-H)  #pto 43
+ret.agregar_nodo(2.343634807564907163e+00+L*2  ,B,4.281724747887941618e+01-H*2)#pto 44
+ret.agregar_nodo(2.343634807564907163e+00+L*3  ,B,4.281724747887941618e+01-H*3)#pto 45
+ret.agregar_nodo(2.343634807564907163e+00+L*4  ,B,4.281724747887941618e+01-H*4)#pto 46
+ret.agregar_nodo(2.343634807564907163e+00+L*5  ,B,4.281724747887941618e+01-H*5)#pto 47
+ret.agregar_nodo(2.343634807564907163e+00+L*6  ,B,4.281724747887941618e+01-H*6)#pto 48
+ret.agregar_nodo(2.343634807564907163e+00+L*7  ,B,4.281724747887941618e+01-H*7)#pto 49
+ret.agregar_nodo(2.343634807564907163e+00+L*8  ,B,4.281724747887941618e+01-H*8)#pto 50
+ret.agregar_nodo(2.343634807564907163e+00+L*9  ,B,4.281724747887941618e+01-H*9)#pto 51
+ret.agregar_nodo(2.343634807564907163e+00+L*10 ,B,4.281724747887941618e+01-H*10)#pto52
+ret.agregar_nodo(2.343634807564907163e+00+L*11 ,B,4.281724747887941618e+01-H*11)#pto53
+ret.agregar_nodo(2.343634807564907163e+00+L*12 ,B,4.281724747887941618e+01-H*12)#pto54
+ret.agregar_nodo(2.343634807564907163e+00+L*13 ,B,4.281724747887941618e+01-H*13)#pto55
+ret.agregar_nodo(2.343634807564907163e+00+L*14 ,B,4.281724747887941618e+01-H*14)#pto56
+ret.agregar_nodo(2.343634807564907163e+00+L*15 ,B,4.281724747887941618e+01-H*15)#pto57
+ret.agregar_nodo(2.343634807564907163e+00+L*16 ,B,4.281724747887941618e+01-H*16)#pto58
+ret.agregar_nodo(2.343634807564907163e+00+L*17 ,B,4.281724747887941618e+01-H*17)#pto59
+ret.agregar_nodo(2.343634807564907163e+00+L*18 ,B,4.281724747887941618e+01-H*18)#pto60
+ret.agregar_nodo(2.343634807564907163e+00+L*19 ,B,4.281724747887941618e+01-H*19)#pto61
+ret.agregar_nodo(2.343634807564907163e+00+L*20 ,B,4.281724747887941618e+01-H*20)#pto62
+ret.agregar_nodo(1.170936342338148819e+02      ,B,4.008510457294829621e+01)		#pto63
 
 #Nodos Parte superior 
-ret.agregar_nodo(2.343634807564907163e+00+L ,4,6.281724747887941618e+01-H)     #pto64
-ret.agregar_nodo(2.343634807564907163e+00+L*2 ,4,6.281724747887941618e+01-H*2) #pto65
-ret.agregar_nodo(2.343634807564907163e+00+L*3 ,4,6.281724747887941618e+01-H*3) #pto66
-ret.agregar_nodo(2.343634807564907163e+00+L*4 ,4,6.281724747887941618e+01-H*4) #pto67
-ret.agregar_nodo(2.343634807564907163e+00+L*5 ,4,6.281724747887941618e+01-H*5) #pto68
-ret.agregar_nodo(2.343634807564907163e+00+L*6 ,4,6.281724747887941618e+01-H*6) #pto69
-ret.agregar_nodo(2.343634807564907163e+00+L*7 ,4,6.281724747887941618e+01-H*7) #pto70
-ret.agregar_nodo(2.343634807564907163e+00+L*8 ,4,6.281724747887941618e+01-H*8) #pto71
-ret.agregar_nodo(2.343634807564907163e+00+L*9 ,4,6.281724747887941618e+01-H*9) #pto72
-ret.agregar_nodo(2.343634807564907163e+00+L*10 ,4,6.281724747887941618e+01-H*10)#pto73
-ret.agregar_nodo(2.343634807564907163e+00+L*11 ,4,6.281724747887941618e+01-H*11)#pto74
-ret.agregar_nodo(2.343634807564907163e+00+L*12 ,4,6.281724747887941618e+01-H*12)#pto75
-ret.agregar_nodo(2.343634807564907163e+00+L*13 ,4,6.281724747887941618e+01-H*13)#pto76
-ret.agregar_nodo(2.343634807564907163e+00+L*14 ,4,6.281724747887941618e+01-H*14)#pto77
-ret.agregar_nodo(2.343634807564907163e+00+L*15 ,4,6.281724747887941618e+01-H*15)#pto78
-ret.agregar_nodo(2.343634807564907163e+00+L*16 ,4,6.281724747887941618e+01-H*16)#pto79
-ret.agregar_nodo(2.343634807564907163e+00+L*17 ,4,6.281724747887941618e+01-H*17)#pto80
-ret.agregar_nodo(2.343634807564907163e+00+L*18 ,4,6.281724747887941618e+01-H*18)#pto81
-ret.agregar_nodo(2.343634807564907163e+00+L*19 ,4,6.281724747887941618e+01-H*19)#pto82
-ret.agregar_nodo(2.343634807564907163e+00+L*20 ,4,6.281724747887941618e+01-H*20)#pto83
+ret.agregar_nodo(2.343634807564907163e+00+L    ,B,6.281724747887941618e+01-H)     #pto64
+ret.agregar_nodo(2.343634807564907163e+00+L*2  ,B,6.281724747887941618e+01-H*2) #pto65
+ret.agregar_nodo(2.343634807564907163e+00+L*3  ,B,6.281724747887941618e+01-H*3) #pto66
+ret.agregar_nodo(2.343634807564907163e+00+L*4  ,B,6.281724747887941618e+01-H*4) #pto67
+ret.agregar_nodo(2.343634807564907163e+00+L*5  ,B,6.281724747887941618e+01-H*5) #pto68
+ret.agregar_nodo(2.343634807564907163e+00+L*6  ,B,6.281724747887941618e+01-H*6) #pto69
+ret.agregar_nodo(2.343634807564907163e+00+L*7  ,B,6.281724747887941618e+01-H*7) #pto70
+ret.agregar_nodo(2.343634807564907163e+00+L*8  ,B,6.281724747887941618e+01-H*8) #pto71
+ret.agregar_nodo(2.343634807564907163e+00+L*9  ,B,6.281724747887941618e+01-H*9) #pto72
+ret.agregar_nodo(2.343634807564907163e+00+L*10 ,B,6.281724747887941618e+01-H*10)#pto73
+ret.agregar_nodo(2.343634807564907163e+00+L*11 ,B,6.281724747887941618e+01-H*11)#pto74
+ret.agregar_nodo(2.343634807564907163e+00+L*12 ,B,6.281724747887941618e+01-H*12)#pto75
+ret.agregar_nodo(2.343634807564907163e+00+L*13 ,B,6.281724747887941618e+01-H*13)#pto76
+ret.agregar_nodo(2.343634807564907163e+00+L*14 ,B,6.281724747887941618e+01-H*14)#pto77
+ret.agregar_nodo(2.343634807564907163e+00+L*15 ,B,6.281724747887941618e+01-H*15)#pto78
+ret.agregar_nodo(2.343634807564907163e+00+L*16 ,B,6.281724747887941618e+01-H*16)#pto79
+ret.agregar_nodo(2.343634807564907163e+00+L*17 ,B,6.281724747887941618e+01-H*17)#pto80
+ret.agregar_nodo(2.343634807564907163e+00+L*18 ,B,6.281724747887941618e+01-H*18)#pto81
+ret.agregar_nodo(2.343634807564907163e+00+L*19 ,B,6.281724747887941618e+01-H*19)#pto82
+ret.agregar_nodo(2.343634807564907163e+00+L*20 ,B,6.281724747887941618e+01-H*20)#pto83
 
 #Secciones de las barras
 circular_200_4 = Circular(200*mm_, 4*mm_, color="#3E701D")
@@ -277,8 +280,8 @@ ret.agregar_barra(Barra(48, 70, circular_200_4)) #149
 ret.agregar_barra(Barra(49, 71, circular_200_4)) #150
 ret.agregar_barra(Barra(50, 72, circular_200_4)) #151
 ret.agregar_barra(Barra(51, 73, circular_200_4)) #152
-ret.agregar_barra(Barra(52, 73, circular_200_4)) #153
-ret.agregar_barra(Barra(53, 74, circular_200_4)) #154
+ret.agregar_barra(Barra(52, 74, circular_200_4)) #153
+ret.agregar_barra(Barra(53, 75, circular_200_4)) #154
 ret.agregar_barra(Barra(55, 75, circular_200_4)) #155
 ret.agregar_barra(Barra(56, 76, circular_200_4)) #156
 ret.agregar_barra(Barra(57, 77, circular_200_4)) #157
@@ -339,37 +342,209 @@ ret.agregar_barra(Barra(41, 83, circular_200_4)) #207
 
 
 
+#Crear restricciones
+for nodo in [0,42]:
+	ret.agregar_restriccion(nodo, 0, 0)
+	ret.agregar_restriccion(nodo, 1, 0)
+	ret.agregar_restriccion(nodo, 2, 0)
+
+for nodo in [21,63]:
+	ret.agregar_restriccion(nodo, 0, 0)
+	ret.agregar_restriccion(nodo, 1, 0)
+	ret.agregar_restriccion(nodo, 2, 0)
+
 #Visualizar y comprobar las secciones
 opciones_barras = {
-	"ver_secciones_en_barras": True,
+	#"ver_secciones_en_barras": True,
 	"color_barras_por_seccion": True,
 }
 ver_reticulado_3d(ret,opciones_barras=opciones_barras)
 
 
 
-
-#Resolver el problema
-ret.ensamblar_sistema(factor_peso_propio=[0.,0.,0.])
+#Resolver el problema peso_propio
+ret.ensamblar_sistema(factor_peso_propio=[0.,0.,-1.], factor_cargas=0.0)
 ret.resolver_sistema()
-f = ret.obtener_fuerzas()
+f_D = ret.obtener_fuerzas()
 
-#Ver todo el reticulado en texto
-print(ret)
+
+#Agregar fuerzas tablero
+
+ret.agregar_fuerza(0 ,  2,-F/4 ) 
+ret.agregar_fuerza(1 ,  2,-F/2 ) 
+ret.agregar_fuerza(2 ,  2,-F/2 ) 
+ret.agregar_fuerza(3 ,  2,-F/2 ) 
+ret.agregar_fuerza(4 ,  2,-F/2 ) 
+ret.agregar_fuerza(5 ,  2,-F/2 ) 
+ret.agregar_fuerza(6 ,  2,-F/2 ) 
+ret.agregar_fuerza(7 ,  2,-F/2 ) 
+ret.agregar_fuerza(8 ,  2,-F/2 ) 
+ret.agregar_fuerza(9 ,  2,-F/2 ) 
+ret.agregar_fuerza(10,  2,-F/2 ) 
+ret.agregar_fuerza(11,  2,-F/2 ) 
+ret.agregar_fuerza(12,  2,-F/2 ) 
+ret.agregar_fuerza(13,  2,-F/2 ) 
+ret.agregar_fuerza(14,  2,-F/2 ) 
+ret.agregar_fuerza(15,  2,-F/2 ) 
+ret.agregar_fuerza(16,  2,-F/2 ) 
+ret.agregar_fuerza(17,  2,-F/2 ) 
+ret.agregar_fuerza(18,  2,-F/2 ) 
+ret.agregar_fuerza(19,  2,-F/2 ) 
+ret.agregar_fuerza(20,  2,-F/2 ) 
+ret.agregar_fuerza(21,  2,-F/4 ) 
+
+ret.agregar_fuerza(42,  2,-F/4 ) 
+ret.agregar_fuerza(43,  2,-F/2 ) 
+ret.agregar_fuerza(44,  2,-F/2 ) 
+ret.agregar_fuerza(45,  2,-F/2 ) 
+ret.agregar_fuerza(46,  2,-F/2 ) 
+ret.agregar_fuerza(47,  2,-F/2 ) 
+ret.agregar_fuerza(48,  2,-F/2 ) 
+ret.agregar_fuerza(49,  2,-F/2 ) 
+ret.agregar_fuerza(50,  2,-F/2 ) 
+ret.agregar_fuerza(51,  2,-F/2 ) 
+ret.agregar_fuerza(52,  2,-F/2 ) 
+ret.agregar_fuerza(53,  2,-F/2 ) 
+ret.agregar_fuerza(54,  2,-F/2 ) 
+ret.agregar_fuerza(55,  2,-F/2 ) 
+ret.agregar_fuerza(56,  2,-F/2 ) 
+ret.agregar_fuerza(57,  2,-F/2 ) 
+ret.agregar_fuerza(58,  2,-F/2 ) 
+ret.agregar_fuerza(59,  2,-F/2 ) 
+ret.agregar_fuerza(60,  2,-F/2 ) 
+ret.agregar_fuerza(61,  2,-F/2 ) 
+ret.agregar_fuerza(62,  2,-F/2 ) 
+ret.agregar_fuerza(63,  2,-F/4 ) 
+
+#Resolver el problema peso_propio
+ret.ensamblar_sistema(factor_peso_propio=[0.,0.,0], factor_cargas=1.0)
+ret.resolver_sistema()
+f_L = ret.obtener_fuerzas()
+
+
 
 #Visualizar resultados de fuerzas y nodos 
 opciones_nodos = {
 	"usar_posicion_deformada": True,
-	"factor_amplificacion_deformada": 2e3,
+	#"factor_amplificacion_deformada": 2e3,
 }
 
 opciones_barras = {
 	"color_barras_por_dato": True,
 	"ver_dato_en_barras" : True,
-	"dato":f
+	"dato":f_L
 }
 
 
 ver_reticulado_3d(ret, 
 	opciones_nodos=opciones_nodos, 
-	opciones_barras=opciones_barras)
+	opciones_barras=opciones_barras,
+	titulo="Carga Viva")
+
+
+#Visualizar f_L en el reticulado
+opciones_nodos = {
+	"usar_posicion_deformada": False,
+}
+
+opciones_barras = {
+	"color_barras_por_dato": True,
+	"ver_dato_en_barras" : True,
+	"dato":f_D
+}
+
+ver_reticulado_3d(ret, 
+	opciones_nodos=opciones_nodos, 
+	opciones_barras=opciones_barras,
+	titulo="Carga Muerta")
+
+
+#Calcular carga ultima (con factores de mayoracion)
+fu_caso1 = 1.4*f_D
+fu_caso2 = 1.2*f_D + 1.6*f_L
+
+
+
+#Visualizar combinacion en el reticulado
+opciones_nodos = {
+	"usar_posicion_deformada": False,
+}
+
+opciones_barras = {
+	"color_barras_por_dato": True,
+	"ver_dato_en_barras" : True,
+	"dato":fu_caso1
+}
+
+ver_reticulado_3d(ret, 
+	opciones_nodos=opciones_nodos, 
+	opciones_barras=opciones_barras,
+	titulo="1.4D")
+
+opciones_nodos = {
+	"usar_posicion_deformada": False,
+}
+
+opciones_barras = {
+	"color_barras_por_dato": True,
+	"ver_dato_en_barras" : True,
+	"dato":fu_caso2
+}
+
+ver_reticulado_3d(ret, 
+	opciones_nodos=opciones_nodos, 
+	opciones_barras=opciones_barras,
+	titulo="1.2D + 1.6L")
+
+
+cumple_caso1 = ret.chequear_diseño(fu_caso1, ϕ=0.9)
+cumple_caso2 = ret.chequear_diseño(fu_caso2, ϕ=0.9)
+
+if cumple_caso1:
+	print(":)  El reticulado cumple todos los requisitos 1.4D")
+else:
+	print(":(  El reticulado NO cumple todos los requisitos 1.4D")
+
+if cumple_caso2:
+	print(":)  El reticulado cumple todos los requisitos 1.2D + 1.6L")
+else:
+	print(":(  El reticulado NO cumple todos los requisitos 1.2D + 1.6L")
+
+#Calcular factor de utilizacion para las barras
+factores_de_utilizacion_caso1 = ret.obtener_factores_de_utilizacion(fu_caso1, ϕ=0.9)
+factores_de_utilizacion_caso2 = ret.obtener_factores_de_utilizacion(fu_caso2, ϕ=0.9)
+
+
+#Visualizar FU en el reticulado
+opciones_nodos = {
+	"usar_posicion_deformada": False,
+	# "factor_amplificacion_deformada": 1.,
+}
+
+opciones_barras = {
+	"color_barras_por_dato": True,
+	"ver_dato_en_barras" : True,
+	"dato":factores_de_utilizacion_caso1
+}
+
+ver_reticulado_3d(ret, 
+	opciones_nodos=opciones_nodos, 
+	opciones_barras=opciones_barras,
+	titulo="Factor Utilizacion caso 1")
+
+	#Visualizar FU en el reticulado
+opciones_nodos = {
+	"usar_posicion_deformada": False,
+	# "factor_amplificacion_deformada": 1.,
+}
+
+opciones_barras = {
+	"color_barras_por_dato": True,
+	"ver_dato_en_barras" : True,
+	"dato":factores_de_utilizacion_caso2
+}
+
+ver_reticulado_3d(ret, 
+	opciones_nodos=opciones_nodos, 
+	opciones_barras=opciones_barras,
+	titulo="Factor Utilizacion caso 2")
