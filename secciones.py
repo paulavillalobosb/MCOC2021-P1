@@ -130,6 +130,9 @@ class SeccionICHA(object):
         p = self.peso()
         ixx = self.inercia_xx()
         iyy = self.inercia_yy()
+        
+    def nombre(self):
+        return self.denominacion
 
 
         if len(self.fila["d"].values) == 0:
